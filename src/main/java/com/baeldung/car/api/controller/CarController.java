@@ -25,6 +25,26 @@ public class CarController {
     public Iterable<Car> getCars() {
         return carRepository.findAll();
     }
+    @GetMapping("/brand/{brand}")
+    public Iterable<Car> getCarsByBrand(@PathVariable("brand") String brand) {
+        return carRepository.findByBrand(brand);
+    }
+    @GetMapping("/model/{model}")
+    public Iterable<Car> getCarsByModel(@PathVariable("model") String model) {
+        return carRepository.findByModel(model);
+    }
+    @GetMapping("/color/{color}")
+    public Iterable<Car> getCarsByColor(@PathVariable("color") String color) {
+        return carRepository.findByColor(color);
+    }
+    @GetMapping("/fuel/{fuel}")
+    public Iterable<Car> getCarsByFuel(@PathVariable("fuel") String fuel) {
+        return carRepository.findByFuel(fuel);
+    }
+    @GetMapping("/year/{year}")
+    public Iterable<Car> getCarsByYear(@PathVariable("year") int year) {
+        return carRepository.findByYear(year);
+    }
 
     @GetMapping("/{id}")
     public Optional<Car> getCarById(@PathVariable("id") String id) {
